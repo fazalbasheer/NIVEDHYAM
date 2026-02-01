@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ക്ഷേത്ര വഴിപാടുകൾ </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="നിവേദ്യം - ക്ഷേത്ര വഴിപാടുകൾ - ആരോഗ്യം, വിദ്യാഭ്യാസം, കുടുംബ പ്രശ്നങ്ങൾ, സന്താനഭാഗ്യം, തൊഴിൽ, മാനസിക സമ്മർദ്ദം, വിഘ്ന നിവാരണം">
+    <meta name="theme-color" content="#8B4513">
+    <title>നിവേദ്യം - ക്ഷേത്ര വഴിപാടുകൾ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,7 +22,12 @@
         * {
             margin: 0;
             padding: 0;
-            box-box: border-box;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
@@ -26,6 +35,14 @@
             background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
             color: var(--dark);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Improve tap targets for mobile */
+        a, button {
+            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+            touch-action: manipulation;
         }
 
         /* Decorative Header */
@@ -173,6 +190,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
+            display: block;
         }
 
         .offering-card:hover .offering-image img {
@@ -190,7 +208,11 @@
             background: linear-gradient(135deg, var(--cream), var(--secondary));
         }
 
-
+        /* Image loading optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
         .whatsapp-btn {
             display: flex;
@@ -365,6 +387,7 @@
             z-index: 1000;
             transition: all 0.3s ease;
             animation: pulse 2s infinite;
+            text-decoration: none;
         }
 
         .floating-whatsapp:hover {
@@ -420,8 +443,8 @@
 </head>
 <body>
     <header>
-        <h1>🕉️ ക്ഷേത്ര സേവനങ്ങൾ</h1>
-        <p class="subtitle"> വഴിപാടുകളും പൂജകളും</p>
+        <h1>🕉️ നിവേദ്യം</h1>
+        <p class="subtitle">വഴിപാടുകളും പൂജകളും</p>
         <div class="divider"></div>
         <p>പരമ്പരാഗത ഹിന്ദു ക്ഷേത്ര സേവനങ്ങളും പൂജകളും വേദ ആചാരങ്ങൾക്കനുസൃതമായി പരമഭക്തിയോടെ നിർവഹിക്കുന്നു. ഓരോ വഴിപാടും അനുഭവപരിചയമുള്ള പുരോഹിതന്മാർ നടത്തുന്നതാണ്, നിങ്ങളുടെ ജീവിതത്തിൽ സമാധാനവും സമൃദ്ധിയും ദൈവാനുഗ്രഹവും കൊണ്ടുവരുന്നതിനായി.</p>
     </header>
@@ -434,7 +457,7 @@
             <a href="https://wa.me/9633344002?text=ആരോഗ്യ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="health.jpg" alt="ആരോഗ്യം">
+                        <img src="health.jpg" alt="ആരോഗ്യം" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -443,7 +466,7 @@
             <a href="https://wa.me/9633344002?text=വിദ്യാഭ്യാസ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="education.jpg" alt="വിദ്യാഭ്യാസം">
+                        <img src="education.jpg" alt="വിദ്യാഭ്യാസം" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -452,7 +475,7 @@
             <a href="https://wa.me/9633344002?text=കുടുംബ%20പ്രശ്നങ്ങൾ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="family-problems.jpg" alt="കുടുംബ പ്രശ്നങ്ങൾ">
+                        <img src="family-problems.jpg" alt="കുടുംബ പ്രശ്നങ്ങൾ" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -461,7 +484,7 @@
             <a href="https://wa.me/9633344002?text=സന്താനഭാഗ്യം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="fertility.jpg" alt="സന്താനഭാഗ്യം">
+                        <img src="fertility.jpg" alt="സന്താനഭാഗ്യം" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -470,7 +493,7 @@
             <a href="https://wa.me/9633344002?text=തൊഴിൽ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="career.jpg" alt="തൊഴിൽ">
+                        <img src="career.jpg" alt="തൊഴിൽ" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -479,7 +502,7 @@
             <a href="https://wa.me/9633344002?text=മാനസിക%20സമ്മർദ്ദം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="mental-stress.jpg" alt="മാനസിക സമ്മർദ്ദം">
+                        <img src="mental-stress.jpg" alt="മാനസിക സമ്മർദ്ദം" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -488,7 +511,7 @@
             <a href="https://wa.me/9633344002?text=വിഘ്ന%20നിവാരണം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
                 <div class="offering-card">
                     <div class="offering-image">
-                        <img src="obstacle-removals.jpg" alt="വിഘ്ന നിവാരണം">
+                        <img src="obstacle-removals.jpg" alt="വിഘ്ന നിവാരണം" loading="lazy" width="300" height="280">
                     </div>
                 </div>
             </a>
@@ -518,7 +541,7 @@
 
     <footer>
         <p>🕉️ ദൈവാനുഗ്രഹം നിങ്ങളുടെ മേൽ ഉണ്ടാകട്ടെ 🕉️</p>
-        <p style="margin-top: 0.5rem; opacity: 0.8;">© 2026 ദിവ്യ ക്ഷേത്ര സേവനങ്ങൾ. എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം.</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">© 2026 നിവേദ്യം. എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം.</p>
     </footer>
 
     <script>
