@@ -1,1 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ക്ഷേത്ര വഴിപാടുകൾ | ദിവ്യ സേവനങ്ങൾ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D4AF37;
+            --accent: #FF6B35;
+            --dark: #2C1810;
+            --light: #FFF8E7;
+            --cream: #F5E6D3;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-box: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--light) 0%, var(--cream) 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Decorative Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--light);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(90deg, transparent, transparent 10px, rgba(212,175,55,0.1) 10px, rgba(212,175,55,0.1) 20px),
+                repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(212,175,55,0.1) 10px, rgba(212,175,55,0.1) 20px);
+            opacity: 0.3;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            animation: fadeInDown 1s ease-out 0.2s both;
+        }
+
+        header .divider {
+            width: 120px;
+            height: 3px;
+            background: var(--secondary);
+            margin: 1.5rem auto;
+            position: relative;
+            animation: fadeInDown 1s ease-out 0.4s both;
+        }
+
+        header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: relative;
+            animation: fadeInDown 1s ease-out 0.6s both;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-title::after {
+            content: '॥';
+            display: block;
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Offerings Grid */
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .offering-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            animation: fadeInUp 0.6s ease-out both;
+            cursor: pointer;
+        }
+
+        .offering-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(139,69,19,0.2);
+        }
+
+        .offering-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .offering-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+            z-index: 1;
+        }
+
+        .offering-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .offering-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            background: var(--cream);
+        }
+
+        .offering-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .offering-card:hover .offering-image img {
+            transform: scale(1.05);
+        }
+
+        /* Placeholder styling for emoji/icon */
+        .offering-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, var(--cream), var(--secondary));
+        }
+
+
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: #25D366;
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+        }
+
+        .whatsapp-btn:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stagger animation delays for cards */
+        .offering-card:nth-child(1) { animation-delay: 0.1s; }
+        .offering-card:nth-child(2) { animation-delay: 0.2s; }
+        .offering-card:nth-child(3) { animation-delay: 0.3s; }
+        .offering-card:nth-child(4) { animation-delay: 0.4s; }
+        .offering-card:nth-child(5) { animation-delay: 0.5s; }
+        .offering-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 2rem 1.5rem;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header .subtitle {
+                font-size: 1.1rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .offerings-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .offering-image {
+                height: 240px;
+            }
+
+            .whatsapp-btn {
+                font-size: 0.95rem;
+                padding: 0.9rem;
+            }
+
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+
+            .floating-whatsapp svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .whatsapp-tooltip {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+                right: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.75rem;
+            }
+
+            .offering-image {
+                height: 200px;
+            }
+
+            .offering-placeholder {
+                font-size: 4rem;
+            }
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            background: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 8px 32px rgba(37,211,102,0.6);
+        }
+
+        .floating-whatsapp svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 8px solid transparent;
+            border-left-color: var(--dark);
+        }
+
+        .floating-whatsapp:hover .whatsapp-tooltip {
+            opacity: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+            }
+            50% {
+                box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 0 0 15px rgba(37,211,102,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🕉️ ദിവ്യ ക്ഷേത്ര സേവനങ്ങൾ</h1>
+        <p class="subtitle">വിശുദ്ധ വഴിപാടുകളും പൂജകളും</p>
+        <div class="divider"></div>
+        <p>ഞങ്ങളുടെ വിശുദ്ധ ക്ഷേത്രത്തിലേക്ക് സ്വാഗതം. പരമ്പരാഗത ഹിന്ദു ക്ഷേത്ര സേവനങ്ങളും പൂജകളും വേദ ആചാരങ്ങൾക്കനുസൃതമായി പരമഭക്തിയോടെ നിർവഹിക്കുന്നു. ഓരോ വഴിപാടും അനുഭവപരിചയമുള്ള പുരോഹിതന്മാർ നടത്തുന്നതാണ്, നിങ്ങളുടെ ജീവിതത്തിൽ സമാധാനവും സമൃദ്ധിയും ദൈവാനുഗ്രഹവും കൊണ്ടുവരുന്നതിനായി.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">ഞങ്ങളുടെ വിശുദ്ധ വഴിപാടുകൾ</h2>
+
+        <div class="offerings-grid">
+            <!-- Offering 1: Health -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=ആരോഗ്യ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="health.jpg" alt="ആരോഗ്യം">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 2: Education -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=വിദ്യാഭ്യാസ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="education.jpg" alt="വിദ്യാഭ്യാസം">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 3: Family Problems -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=കുടുംബ%20പ്രശ്നങ്ങൾ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="family-problems.jpg" alt="കുടുംബ പ്രശ്നങ്ങൾ">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 4: Fertility -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=സന്താനഭാഗ്യം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="fertility.jpg" alt="സന്താനഭാഗ്യം">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 5: Career -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=തൊഴിൽ%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="career.jpg" alt="തൊഴിൽ">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 6: Mental Stress -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=മാനസിക%20സമ്മർദ്ദം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="mental-stress.jpg" alt="മാനസിക സമ്മർദ്ദം">
+                    </div>
+                </div>
+            </a>
+
+            <!-- Offering 7: Obstacle Removals -->
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=വിഘ്ന%20നിവാരണം%20വഴിപാടിനെക്കുറിച്ച്%20അറിയാൻ%20താൽപര്യമുണ്ട്" class="offering-link">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="obstacle-removals.jpg" alt="വിഘ്ന നിവാരണം">
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+
+        <!-- WhatsApp Contact Section -->
+        <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+            <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; color: var(--primary); margin-bottom: 1rem;">നിങ്ങളുടെ പൂജ ബുക്ക് ചെയ്യുക</h3>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 2rem;">ക്ഷേത്ര വഴിപാട് ഷെഡ്യൂൾ ചെയ്യാൻ വാട്സ്ആപ്പിൽ ഞങ്ങളെ ബന്ധപ്പെടുക</p>
+            <a href="https://wa.me/YOUR_PHONE_NUMBER?text=നമസ്കാരം,%20ക്ഷേത്ര%20വഴിപാട്%20ബുക്ക്%20ചെയ്യാൻ%20ആഗ്രഹിക്കുന്നു" class="whatsapp-btn" style="display: inline-flex; max-width: 300px;">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                വാട്സ്ആപ്പിൽ ബുക്ക് ചെയ്യുക
+            </a>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER?text=നമസ്കാരം,%20ക്ഷേത്ര%20വഴിപാട്%20ബുക്ക്%20ചെയ്യാൻ%20ആഗ്രഹിക്കുന്നു" class="floating-whatsapp">
+        <span class="whatsapp-tooltip">ഇപ്പോൾ ബുക്ക് ചെയ്യുക</span>
+        <svg viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <footer>
+        <p>🕉️ ദൈവാനുഗ്രഹം നിങ്ങളുടെ മേൽ ഉണ്ടാകട്ടെ 🕉️</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">© 2026 ദിവ്യ ക്ഷേത്ര സേവനങ്ങൾ. എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.offering-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
